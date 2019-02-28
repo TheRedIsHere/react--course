@@ -14,7 +14,7 @@ class App extends Component {
     //return React.createElement('div', null, 'h1', 'I\'m here');
 
     // child element is a HTMLElement
-    return React.createElement('div', null, React.createElement('h1', null, 'Hello world!!!'));
+    return React.createElement('div', {className: 'App'} , React.createElement('h1', null, 'Hello world!!!'));
   }
 }
 
