@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,19 +7,21 @@ import './App.css';
 */
 import Person from './Person/Person';
 
-class App extends Component {
-  state = {
+const app = props => {
+  //DON'T keep the previous state when rewriting states
+  const [personsState, setPesronsState] = useState({
     persons: [
       {name: "Mark", age: "14"},
       {name: "Dima", age: "21"},
       {name: "Diana", age: "18"}
-    ]
-  }
+    ],
+    hello: "Hello world"
+  });
 
-  switchNameHandler = () => {
+  const switchNameHandler = () => {
     //console.log('Was clicked!');
     //DON'T DO THIS: this.state.persons[0].name = 'Nike';
-    this.setState({
+    setPesronsState({
       persons : [
         {name: "Lora", age: "12"},
         {name: "Dima", age: "21"},
@@ -28,23 +30,15 @@ class App extends Component {
     });
   } 
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello world</h1>
-        <button onClick={this.switchNameHandler}>Switch name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: Racing</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-      </div>
-    );
-    
-    // child elements are text elements
-    //return React.createElement('div', null, 'h1', 'I\'m here');
-
-    // child element is a HTMLElement
-    //return React.createElement('div', {className: 'App'} , React.createElement('h1', null, 'Hello world!!!'));
-  }
+  return (
+    <div className="App">
+      <h1>Hello world</h1>
+      <button onClick={switchNameHandler}>Switch name</button>
+      <Person name={personsState.persons[0].name} age={personsState.persons[0].age}/>
+      <Person name={personsState.persons[1].name} age={personsState.persons[1].age}>My Hobbies: Racing</Person>
+      <Person name={personsState.persons[2].name} age={personsState.persons[2].age}/>
+    </div>
+  );
 }
 
-export default App;
+export default app;
