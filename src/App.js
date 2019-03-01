@@ -18,6 +18,9 @@ const app = props => {
     hello: "Hello world"
   });
 
+  const [helloState, setHelloState] = useState('Hello world');
+  console.log(helloState);
+
   const switchNameHandler = () => {
     //console.log('Was clicked!');
     //DON'T DO THIS: this.state.persons[0].name = 'Nike';
@@ -26,7 +29,8 @@ const app = props => {
         {name: "Lora", age: "12"},
         {name: "Dima", age: "21"},
         {name: "Kate", age: "21"}
-      ]
+      ], 
+      hello: personsState.hello
     });
   } 
 
