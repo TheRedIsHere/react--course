@@ -11,9 +11,9 @@ class App extends Component {
  
   state = {
     persons: [
-      {name: "Mark", age: "14"},
-      {name: "Dima", age: "21"},
-      {name: "Diana", age: "18"}
+      {id: 'srr23', name: "Mark", age: "14"},
+      {id: 'qwda2', name: "Dima", age: "21"},
+      {id: 'dasf3', name: "Diana", age: "18"}
     ],
     hello: "Hello world",
     showPerson: false
@@ -67,7 +67,7 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <Person
+              <Person key={person.id}
                 click={()=>{this.deletePersonHandler(index)}}
                 name={person.name} 
                 age={person.age}/>
