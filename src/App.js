@@ -5,7 +5,7 @@ import './App.css';
 /*
 * Third party libraries
 */
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 /*
 * Custom compoments
@@ -121,14 +121,16 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>Hi, I'm a React App!!!</h1>
-        <p className={classes.join(' ')}>This is really working!</p>
-        <button 
-          style={style}
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I'm a React App!!!</h1>
+          <p className={classes.join(' ')}>This is really working!</p>
+          <button 
+            style={style}
+            onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
