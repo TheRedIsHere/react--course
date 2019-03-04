@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+//import './App.css';
+
+
+/**
+ * Import css modules
+ */
+import cssClasses from './App.module.css';
+
+/*
+* Third party libraries
+*/
 
 /*
 * Custom compoments
 */
 import Person from './Person/Person';
+import { throws } from 'assert';
 
 class App extends Component {
  
@@ -62,15 +73,8 @@ class App extends Component {
   };
 
   render () { 
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
-
     let persons = null;
+    let btnClasses = '';
 
     if (this.state.showPerson) {
       persons = (
@@ -92,13 +96,25 @@ class App extends Component {
             changed={this.nameChangedHandler}>My Hobbies: Racing</Person> */}
         </div> 
       );
+
+      btnClasses = cssClasses.Red;
+    }
+
+    const assignedClasses = [];
+    if (this.state.persons.length <= 2) {
+      assignedClasses.push(cssClasses.red);
+    } 
+    
+    if (this.state.persons.length <= 1) {
+      assignedClasses.push(cssClasses.bold);
     }
 
     return (
-      <div className="App">
-        <h1>Hello world</h1>
+      <div className={cssClasses.App}>
+        <h1>Hi, I'm a React App!!!</h1>
+        <p className={assignedClasses.join(' ')}>This is really working!</p>
         <button 
-          style={style}
+          className={btnClasses}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>

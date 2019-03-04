@@ -1,8 +1,13 @@
 import React from 'react';
 
+/*
+* Third party libraries
+*/
+
 import "./Person.css"
 
 const person = (props) => {
+
     return (
         <div className="Person">
             <p onClick={props.click}>
