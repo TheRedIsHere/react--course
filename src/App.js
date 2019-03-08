@@ -16,6 +16,7 @@ import cssClasses from './App.module.css';
 * Custom compoments
 */
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import { throws } from 'assert';
 
 class App extends Component {
@@ -81,11 +82,13 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <Person key={person.id}
-                click={()=>{this.deletePersonHandler(index)}}
-                name={person.name} 
-                age={person.age}
-                changed={(event) => {this.nameChangedHandler(event, person.id)}}/>
+              <ErrorBoundary key={person.id}>
+                <Person 
+                  click={()=>{this.deletePersonHandler(index)}}
+                  name={person.name} 
+                  age={person.age}
+                  changed={(event) => {this.nameChangedHandler(event, person.id)}}/>
+              </ErrorBoundary>
             )
           })}
          
