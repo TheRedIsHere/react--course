@@ -16,7 +16,8 @@ import cssClasses from './App.module.css';
 */
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
-import WithClass from '../hoc/WithClass';
+import Aux from '../hoc/Auxiliary';
+import withClass from '../hoc/WithClass';
 
 class App extends Component {
 
@@ -113,7 +114,7 @@ class App extends Component {
     }
 
     return (
-      <WithClass classes={cssClasses.App}>
+      <Aux>
         <button
           onClick={() => {
             this.setState({showCockpit: !this.state.showCockpit})
@@ -128,9 +129,9 @@ class App extends Component {
           clicked={this.togglePersonsHandler}
         /> : null}
         {persons}
-      </WithClass>
+      </Aux>
     );
   }
 }
 
-export default App;
+export default withClass(App, cssClasses.App);
