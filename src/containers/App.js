@@ -16,6 +16,7 @@ import cssClasses from './App.module.css';
 */
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
+import WithClass from '../hoc/WithClass';
 
 class App extends Component {
 
@@ -112,7 +113,7 @@ class App extends Component {
     }
 
     return (
-      <div className={cssClasses.App}>
+      <WithClass classes={cssClasses.App}>
         <button
           onClick={() => {
             this.setState({showCockpit: !this.state.showCockpit})
@@ -127,7 +128,7 @@ class App extends Component {
           clicked={this.togglePersonsHandler}
         /> : null}
         {persons}
-      </div>
+      </WithClass>
     );
   }
 }
