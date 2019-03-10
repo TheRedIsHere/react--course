@@ -4,12 +4,14 @@ import React, {Component} from 'react';
 * Customs CSS
 */
 
-import "./Person.css"
+// import "./Person.css"
+import classes from "./Person.module.css"
 
 /*
 * Import custom js
 */
-import Aux from '.././../../hoc/Auxiliary';
+import withClass from '../../../hoc/WithClass';
+import Aux from '../../../hoc/Auxiliary';
 
 class Person extends Component {
 
@@ -36,4 +38,4 @@ class Person extends Component {
     }
 }
 
-export default Person;
+export default withClass(Person, classes.Person);
