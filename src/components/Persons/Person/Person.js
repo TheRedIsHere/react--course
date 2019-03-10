@@ -18,6 +18,7 @@ class Person extends Component {
 
         return (
             // <div className="Person">
+            // <React.Fragment>  Can use Fragment if add {Fragment} to import for react
             <Aux>
                 <p onClick={this.props.click}>
                     I'm a {this.props.name} and I am {this.props.age}
@@ -29,6 +30,7 @@ class Person extends Component {
                     onChange={this.props.changed}
                     value={this.props.name}/>
             </Aux>
+            // </React.Fragment>
             // </div>
         )
     }
