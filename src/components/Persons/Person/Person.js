@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 
 /*
-* Third party libraries
+* Customs CSS
 */
 
 import "./Person.css"
+
+/*
+* Import custom js
+*/
+import Aux from '.././../../hoc/Auxiliary';
 
 class Person extends Component {
 
@@ -12,7 +17,8 @@ class Person extends Component {
         console.log('[Person.js] rendering...');
 
         return (
-            <div className="Person">
+            // <div className="Person">
+            <Aux>
                 <p onClick={this.props.click}>
                     I'm a {this.props.name} and I am {this.props.age}
                 </p>
@@ -22,7 +28,8 @@ class Person extends Component {
                 <input type="text" 
                     onChange={this.props.changed}
                     value={this.props.name}/>
-            </div>
+            </Aux>
+            // </div>
         )
     }
 }
